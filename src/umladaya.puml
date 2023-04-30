@@ -2,8 +2,12 @@
 skinparam classAttributeIconSize 0
 
 class Evento{
+date : Date
+description : String
+assign(l : Location) : void
 }
 class Conferencia{
+max_attendees : Integer
 }
 class BoardMeeting{
 }
@@ -11,16 +15,25 @@ Evento <|-- Conferencia
 Evento <|-- BoardMeeting
 
 class Persona{
+name : String
 }
 class Member{
+e-mail : String
 }
 class BoardMember{
 }
 Persona <|-- Member
 Member<|-- BoardMember
 class Localizacion{
+description : String
+address : String
 }
 class AAUOC{
+newLocation(l : Location) : void
+newEvent(e : Event) : void
+newPerson(p : Person) : void
+informEvent(e : Event) : void
+register(m : Member,e : Event) : void
 }
 AAUOC o-- Persona
 AAUOC o-- Localizacion
