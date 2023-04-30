@@ -38,9 +38,9 @@ register(m : Member,e : Event) : void
 AAUOC o-- Persona
 AAUOC o-- Localizacion
 AAUOC o-- Evento
-Localizacion -- Evento
-Persona -- Conferencia
-Evento -- Member
-BoardMember -- BoardMeeting
+Localizacion -- "isLocated In" Evento
+Persona -- "attendsTo" Conferencia
+Evento -- "attendsTo" Member
+BoardMember -- "attendsTo" BoardMeeting
 
 @enduml
