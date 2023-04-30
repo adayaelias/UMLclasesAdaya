@@ -35,12 +35,11 @@ newPerson(p : Person) : void
 informEvent(e : Event) : void
 register(m : Member,e : Event) : void
 }
-AAUOC o-- Persona
-AAUOC o-- Localizacion
+AAUOC o-- "0...*" Persona
+AAUOC o-- "0...*" Localizacion
 AAUOC o-- Evento
-Localizacion -- "isLocated In" Evento
-Persona -- "attendsTo" Conferencia
-Evento -- "attendsTo" Member
-BoardMember -- "attendsTo" BoardMeeting
-
+Localizacion "1"-- "0...*" Evento : "isLocated In"
+Persona "0...*" -- "0...*"  Conferencia : "attendsTo"
+Evento "0...*"-- "0...*" Member : "attendsTo"
+BoardMember "0...*" -- "0...*" BoardMeeting :"attendsTo"
 @enduml
